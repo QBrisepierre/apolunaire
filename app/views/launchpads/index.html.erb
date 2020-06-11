@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="mt-5">Les Launchpads</h1>
+  <div class="cards">
+    <% @launchpads.each do |launchpad| %>
+      <div class="card">
+        <%= link_to launchpad_path(launchpad) do%>
+          <div class="card-game">
+            <img class="top-img" src="https://thumbs-prod.si-cdn.com/iN15jPYLEADpUSF8K1brczK-kL0=/fit-in/1600x0/https://public-media.si-cdn.com/filer/6e/8a/6e8acb2a-6d4c-4bcc-8309-2f05d65c0821/space_launch_complex_40.jpg" alt="">
+            <div class="card-game-infos">
+              <div>
+                <h2 class=""><%= launchpad.full_name %></h2>
+                <p><%= launchpad.locality %></p>
+                <p><%= launchpad.status %></p>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+</div>

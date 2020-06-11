@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_132506) do
+ActiveRecord::Schema.define(version: 2020_06_10_142554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 2020_06_10_132506) do
     t.string "status"
     t.string "locality"
     t.string "region"
-    t.integer "latitude"
-    t.integer "longitude"
-    t.text "details"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "launch_attempts"
   end
 
   create_table "rockets", force: :cascade do |t|

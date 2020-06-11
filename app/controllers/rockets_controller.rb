@@ -1,11 +1,12 @@
 class RocketsController < ApplicationController
-    before_action :rockets_params, only: [:show, :edit, :update, :destroy]
+    before_action :set_rocket, only: [:show, :edit, :update, :destroy]
 
     def index
         @rockets = Rocket.all
     end
 
     def show
+        @rocket = Rocket.find(params[:id])
     end
 
     def new
@@ -29,5 +30,9 @@ class RocketsController < ApplicationController
   
     def rockets_params
       params.require(:rocket).permit(:name, :customer, :engine, :engine_version, :number_engine, :propergol_1, :propergol_2, :landing_legs, :activity, :stage, :booster, :description, :height, :diameter, :mass, :image)
+    end
+
+    def set_rocket
+        @rocket = Rocket.find(params[:id])
     end
 end

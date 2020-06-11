@@ -1,0 +1,17 @@
+<div class="container" style="padding-top: 40px;">
+    <%= link_to rockets_path  do %>
+      <div class="btn btn-ghost mt-5" >
+        <p>< Retour</p>
+      </div>
+    <%end%>
+  <div class="title">
+     <h3 class=""><%= @rocket.name %></h3>
+  </div>
+
+  <div class="body">
+    <div class="card-img">
+      <img src="<%= @rocket.image %>" alt="">
+    </div>
+  </div>
+
+</div>

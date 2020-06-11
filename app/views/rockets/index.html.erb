@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="mt-5">Les rockets</h1>
+  <div class="cards">
+    <% @rockets.each do |rocket| %>
+      <div class="card">
+        <%= link_to rocket_path(rocket) do%>
+          <div class="card-game">
+            <% if rocket.image == "https://www.spacex.com/sites/spacex/files/styles/media_gallery_large/public/2009_-_01_liftoff_south_full_wide_ro8a1280_edit.jpg?itok=8loiSGt1" %>
+                <% rocket.image = "https://rocketrundown.com/wp-content/uploads/2018/05/Falcon-1.jpg" %>
+            <%end%>
+            <img class="top-img" src="<%= rocket.image %>" alt="">
+            <div class="card-game-infos">
+              <div>
+                <h2 class=""><%= rocket.name %></h2>
+                <p><%= rocket.customer %></p>
+                <p><%= rocket.engine %></p>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+</div>

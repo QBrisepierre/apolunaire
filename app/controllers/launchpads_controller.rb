@@ -1,8 +1,8 @@
-class LaunchpadController < ApplicationController
-    before_action :launchpad_params, only: [:show, :edit, :update, :destroy]
+class LaunchpadsController < ApplicationController
+    before_action :set_launchpad, only: [:show, :edit, :update, :destroy]
 
     def index
-        @launchpad = Launchpad.all
+        @launchpads = Launchpad.all
     end
 
     def show
@@ -29,5 +29,9 @@ class LaunchpadController < ApplicationController
   
     def launchpad_params
       params.require(:launchpad).permit(:full_name, :status, :locality, :region, :latitude, :longitude, :details)
+    end
+
+    def set_launchpad
+        @launchpad = Launchpad.find(params[:id])
     end
 end

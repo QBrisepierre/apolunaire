@@ -10,10 +10,17 @@ require "json"
 require "rest-client"
 
 response = RestClient.get "https://api.spacexdata.com/v4/rockets"
-repos = JSON.parse(response)
+rockets = JSON.parse(response)
 # => repos is an `Array` of `Hashes`.
 
-repos.each do |element|
+rockets.each do |element|
     Rocket.create(name: element["name"], customer: element["company"], engine: element["engines"]["type"], engine_version: element["engines"]["version"], number_engine: element["engines"]["number"], propergol_1: element["engines"]["propellant_1"], propergol_2: element["engines"]["propellant_2"], landing_legs: element["landing_legs"]["number"], activity: element["active"], stage: element["stages"], booster: element["boosters"], description: element["description"], height: element["height"]["meters"], diameter: element["diameter"]["meters"], mass: element["mass"]["kg"], image: element["flickr_images"][0])
     #puts element["diameter"]["meters"].to_f
+end
+
+response = RestClient.get "https://api.spacexdata.com/v4/launchpads"
+launchpad = JSON.parse(response)
+
+launchpad.each do |element|
+    Launchpad.create(full_name: element["full_name"], status: element["status"], locality: element["locality"], region: element["region"], latitude: element["latitude"], longitude: element["longitude"], launch_attempts: element["launch_attempts"])
 end
