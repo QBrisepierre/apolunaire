@@ -29,6 +29,6 @@ class LaunchesController < ApplicationController
     private
   
     def launches_params
-      params.require(:launche).permit(:name, :details, :launch_date_utc, :static_fire_utc, :launch_illustration, :launch_1, :launch_2, :success, :rocket_id, :launchpad_id)
+      params.require(:launche).permit(:name, :details, :launch_date_utc, :static_fire_utc, :launch_illustration, :launch_1, :success, :rocket_id, :launchpad_id, :youtube_id)
     end
 end

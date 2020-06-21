@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_142554) do
+ActiveRecord::Schema.define(version: 2020_06_15_123756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 2020_06_10_142554) do
     t.date "launch_date_utc"
     t.date "static_fire_utc"
     t.string "launch_illustration"
-    t.string "launch_1"
-    t.string "launch_2"
+    t.string "launch_1", default: [], array: true
     t.boolean "success"
     t.bigint "rocket_id", null: false
     t.bigint "launchpad_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "youtube_id"
     t.index ["launchpad_id"], name: "index_launches_on_launchpad_id"
     t.index ["rocket_id"], name: "index_launches_on_rocket_id"
   end
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_142554) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "launch_attempts"
+    t.string "launchpad_id_long"
   end
 
   create_table "rockets", force: :cascade do |t|
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_142554) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "number_engine"
+    t.string "rocket_id_long"
   end
 
   add_foreign_key "launches", "launchpads"

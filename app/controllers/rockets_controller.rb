@@ -29,7 +29,7 @@ class RocketsController < ApplicationController
     private
   
     def rockets_params
-      params.require(:rocket).permit(:name, :customer, :engine, :engine_version, :number_engine, :propergol_1, :propergol_2, :landing_legs, :activity, :stage, :booster, :description, :height, :diameter, :mass, :image)
+      params.require(:rocket).permit(:name, :customer, :engine, :engine_version, :number_engine, :propergol_1, :propergol_2, :landing_legs, :activity, :stage, :booster, :description, :height, :diameter, :mass, :image, :rocket_id)
     end
 
     def set_rocket

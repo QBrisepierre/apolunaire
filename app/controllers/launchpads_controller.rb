@@ -28,7 +28,7 @@ class LaunchpadsController < ApplicationController
     private
   
     def launchpad_params
-      params.require(:launchpad).permit(:full_name, :status, :locality, :region, :latitude, :longitude, :details)
+      params.require(:launchpad).permit(:full_name, :status, :locality, :region, :latitude, :longitude, :details, :launchpad_id)
     end
 
     def set_launchpad

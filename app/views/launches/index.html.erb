@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="mt-5">Les launches</h1>
+  <div class="cards">
+    <% @launches.each do |launche| %>
+      <div class="card">
+        <%= link_to rocket_path(launche) do%>
+          <div class="card-game">
+            <img class="top-img" src="<%= launche.launch_illustration %>" alt="">
+            <div class="card-game-infos">
+              <div>
+                <h2 class=""><%= launche.name %></h2>
+                <p><%= launche.success %></p>
+                <p><%= launche.launch_date_utc %></p>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+</div>
